@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://gridea.momijineko.github.io</id>
+    <id>https://momijineko.xyz/gridea</id>
     <title>Gridea</title>
-    <updated>2020-03-11T04:01:07.891Z</updated>
+    <updated>2020-03-11T04:05:07.775Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://gridea.momijineko.github.io"/>
-    <link rel="self" href="https://gridea.momijineko.github.io/atom.xml"/>
+    <link rel="alternate" href="https://momijineko.xyz/gridea"/>
+    <link rel="self" href="https://momijineko.xyz/gridea/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://gridea.momijineko.github.io/images/avatar.png</logo>
-    <icon>https://gridea.momijineko.github.io/favicon.ico</icon>
+    <logo>https://momijineko.xyz/gridea/images/avatar.png</logo>
+    <icon>https://momijineko.xyz/gridea/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[AntdPro和umi踩坑问题日记]]></title>
-        <id>https://gridea.momijineko.github.io/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/</id>
-        <link href="https://gridea.momijineko.github.io/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/">
+        <id>https://momijineko.xyz/gridea/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/</id>
+        <link href="https://momijineko.xyz/gridea/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/">
         </link>
         <updated>2020-03-01T09:03:55.000Z</updated>
         <summary type="html"><![CDATA[<p>这几天使用antdpro框架尝试进行快速开发，其中遇到了不少问题，现记录一下</p>
@@ -76,8 +76,8 @@ export default withBreadcrumbs()(Breadcrumbs);
     </entry>
     <entry>
         <title type="html"><![CDATA[selenium 踩坑记录（二） xpath和延时]]></title>
-        <id>https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/</id>
-        <link href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/">
+        <id>https://momijineko.xyz/gridea/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/</id>
+        <link href="https://momijineko.xyz/gridea/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/">
         </link>
         <updated>2019-10-28T03:47:51.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
@@ -109,8 +109,8 @@ sleep(1)
     </entry>
     <entry>
         <title type="html"><![CDATA[selenium 踩坑记录（一） frame/iframe定位]]></title>
-        <id>https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/</id>
-        <link href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/">
+        <id>https://momijineko.xyz/gridea/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/</id>
+        <link href="https://momijineko.xyz/gridea/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/">
         </link>
         <updated>2019-10-23T12:34:58.000Z</updated>
         <summary type="html"><![CDATA[<p>这两天尝试一个页面的自动化测试，看上去很简单的一个页面，然而坑了我两天（</p>
@@ -165,8 +165,8 @@ driver.findElement(By.xpath(&quot;//*[@id=\&quot;alt1\&quot;]/div[2]/input&quot;
     </entry>
     <entry>
         <title type="html"><![CDATA[Webdriver 报错 Element not visible 解决方法]]></title>
-        <id>https://gridea.momijineko.github.io/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/</id>
-        <link href="https://gridea.momijineko.github.io/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/">
+        <id>https://momijineko.xyz/gridea/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/</id>
+        <link href="https://momijineko.xyz/gridea/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/">
         </link>
         <updated>2019-10-22T09:37:44.000Z</updated>
         <summary type="html"><![CDATA[<ol>
@@ -210,8 +210,8 @@ for an input, the attribute type != hidden</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[测试用例编写顺序和要点]]></title>
-        <id>https://gridea.momijineko.github.io/post/ce-shi-yong-li-bian-xie-shun-xu-he-yao-dian/</id>
-        <link href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-bian-xie-shun-xu-he-yao-dian/">
+        <id>https://momijineko.xyz/gridea/post/ce-shi-yong-li-bian-xie-shun-xu-he-yao-dian/</id>
+        <link href="https://momijineko.xyz/gridea/post/ce-shi-yong-li-bian-xie-shun-xu-he-yao-dian/">
         </link>
         <updated>2019-10-21T05:12:04.000Z</updated>
         <summary type="html"><![CDATA[<p>记录自己在软件测试的学习过程中的要点</p>
@@ -309,8 +309,8 @@ for an input, the attribute type != hidden</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[Python-unittest单元测试框架]]></title>
-        <id>https://gridea.momijineko.github.io/post/python-unittest-dan-yuan-ce-shi-kuang-jia/</id>
-        <link href="https://gridea.momijineko.github.io/post/python-unittest-dan-yuan-ce-shi-kuang-jia/">
+        <id>https://momijineko.xyz/gridea/post/python-unittest-dan-yuan-ce-shi-kuang-jia/</id>
+        <link href="https://momijineko.xyz/gridea/post/python-unittest-dan-yuan-ce-shi-kuang-jia/">
         </link>
         <updated>2019-10-08T13:28:58.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="什么是unittest">什么是<code>unittest</code></h3>
@@ -347,8 +347,8 @@ for an input, the attribute type != hidden</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[selenium自动化测试学习记录]]></title>
-        <id>https://gridea.momijineko.github.io/post/selenium-zi-dong-hua-ce-shi-xue-xi-ji-lu/</id>
-        <link href="https://gridea.momijineko.github.io/post/selenium-zi-dong-hua-ce-shi-xue-xi-ji-lu/">
+        <id>https://momijineko.xyz/gridea/post/selenium-zi-dong-hua-ce-shi-xue-xi-ji-lu/</id>
+        <link href="https://momijineko.xyz/gridea/post/selenium-zi-dong-hua-ce-shi-xue-xi-ji-lu/">
         </link>
         <updated>2019-10-07T06:43:59.000Z</updated>
         <summary type="html"><![CDATA[<h4 id="环境搭建步骤">环境搭建步骤</h4>
@@ -466,8 +466,8 @@ driver.switchTo().defaultContent();
     </entry>
     <entry>
         <title type="html"><![CDATA[测试用例中重要级别分类记录]]></title>
-        <id>https://gridea.momijineko.github.io/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/</id>
-        <link href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/">
+        <id>https://momijineko.xyz/gridea/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/</id>
+        <link href="https://momijineko.xyz/gridea/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/">
         </link>
         <updated>2019-10-03T13:56:35.000Z</updated>
         <content type="html"><![CDATA[<p>在我们的参赛标准里</p>
@@ -485,8 +485,8 @@ driver.switchTo().defaultContent();
     </entry>
     <entry>
         <title type="html"><![CDATA[ES6相关的新方法记录]]></title>
-        <id>https://gridea.momijineko.github.io/post/es6-xiang-guan-de-xin-fang-fa-ji-lu/</id>
-        <link href="https://gridea.momijineko.github.io/post/es6-xiang-guan-de-xin-fang-fa-ji-lu/">
+        <id>https://momijineko.xyz/gridea/post/es6-xiang-guan-de-xin-fang-fa-ji-lu/</id>
+        <link href="https://momijineko.xyz/gridea/post/es6-xiang-guan-de-xin-fang-fa-ji-lu/">
         </link>
         <updated>2019-09-29T03:01:30.000Z</updated>
         <summary type="html"><![CDATA[<p>这篇文章记录一些ES6及以上版本JS中新增添常用的一些特性和方法</p>
@@ -522,8 +522,8 @@ console.log(`${y}年${m}月${d}日`)
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue过滤器的使用]]></title>
-        <id>https://gridea.momijineko.github.io/post/vue-guo-lu-qi-de-shi-yong/</id>
-        <link href="https://gridea.momijineko.github.io/post/vue-guo-lu-qi-de-shi-yong/">
+        <id>https://momijineko.xyz/gridea/post/vue-guo-lu-qi-de-shi-yong/</id>
+        <link href="https://momijineko.xyz/gridea/post/vue-guo-lu-qi-de-shi-yong/">
         </link>
         <updated>2019-09-27T11:53:36.000Z</updated>
         <summary type="html"><![CDATA[<h2 id="过滤器概念">过滤器概念</h2>

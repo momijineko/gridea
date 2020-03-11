@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+    <meta charset="utf-8" />
+  <title>Vue | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+      <div class="page-top animated fadeInDown">
+    <div class="nav">
+
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+              
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/vue-guo-lu-qi-de-shi-yong/">Vue过滤器的使用</a></h3>
+      </div>
+      <div class="post-content">
+       <p><h2 id="过滤器概念">过滤器概念</h2>
+<blockquote>
+<p>Vue.js 允许你自定义过滤器，可被用做一些常见的文本格式化，过滤器可以用在两个地方：mustache插值和v-bind表达式。过滤器应该被添加在JavaScript表达式的尾部，有“管道”符指示；</p>
+</blockquote>
+<p>代码示例：</p>
+<pre><code class="language-javascript">
+// 过滤器的定义语法
+{{ name | nameope }}  // mustache插值表达式
+
+// 全局过滤器
+Vue.filter('nameope', data =&gt; {
+  // 在这里做一些对mustache插值数据的渲染前处理
+  return data
+  // return 处理完的数据
+})
+
+
+</code></pre>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-09-27</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/SC5YEoC2Q/" title="编程">编程 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/13fiRxT7t3/" title="Vue">Vue </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+     
+     <div class="pagination">
+      <ul class="clearfix">
+            
+        
+
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

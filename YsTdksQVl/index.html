@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+    <meta charset="utf-8" />
+  <title>vue | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+      <div class="page-top animated fadeInDown">
+    <div class="nav">
+
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+              
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/">AntdPro和umi踩坑问题日记</a></h3>
+      </div>
+      <div class="post-content">
+       <p><p>这几天使用antdpro框架尝试进行快速开发，其中遇到了不少问题，现记录一下</p>
+<hr>
+<p>2020年2月25日</p>
+<p>做路由跳转的时候发现，一级路由正常，但是切换到2级路由就会出现 地址更新页面没有跳转。</p>
+<p>解决方法：在父层路由所调用的组件中<strong>一定</strong>要包括<code>router-link</code>管道，</p>
+<p>框架不停提示各种各样的error。</p>
+<p>解决方法：修改<code>.eslintrc.js</code>文件<br>
+比如默认函数名后一定要空一个空格，但是这和编辑器逻辑是相悖的，所有我们可以把他关掉：<code>rules</code>下<code>&quot;space-before-function-paren&quot;: 0, // 去除函数括号前的空格</code></p>
+<hr>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2020-03-01</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/YsTdksQVl/" title="vue">vue </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/DdW7dcLUra/" title="vue-router">vue-router </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/vbqzTVO__d/" title="antd">antd </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/FmzInPN3L5/" title="react">react </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+     
+     <div class="pagination">
+      <ul class="clearfix">
+            
+        
+
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

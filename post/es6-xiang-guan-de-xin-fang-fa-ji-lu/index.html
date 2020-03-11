@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>ES6相关的新方法记录 | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>ES6相关的新方法记录</a></h3>
+       </div>
+       <div class="post-content">
+        <p>这篇文章记录一些ES6及以上版本JS中新增添常用的一些特性和方法</p>
+<h2 id="string">String</h2>
+<hr>
+<h4 id="es6中用来填充字符串的两个新方法">ES6中用来填充字符串的两个新方法</h4>
+<pre><code class="language-javascript">String.prototype.padStart(maxLength, fillString = '')
+String.prototype.padEnd(maxLength, fillString = '')
+</code></pre>
+<p>顾名思义，<code>padStart</code>是在头部填充，而<code>padEnd</code>是在尾部填充，<code>maxLength</code>为字符串的最短长度，字符串低于这个长度就会进行填充，填充内容为<code>fillString</code></p>
+<!-- more -->
+<p>例如进行日期格式化时：</p>
+<pre><code class="language-javascript">// 模拟日期转换
+let y = 2019;
+let m = 9
+let d = 1
+
+m.padStart(2, '0')  // 头部填充，字符串不足2位前补'0'
+d.padEnd(2, '0')
+
+console.log(`${y}年${m}月${d}日`)
+</code></pre>
+
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2019-09-29</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/FuyqzxNm5/" title="JavaScript">JavaScript </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/UOSHqeYM-o/" title="ES6">ES6 </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/Vs5rCj0hLp/" title="JS">JS </a>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://gridea.momijineko.github.io/post/es6-xiang-guan-de-xin-fang-fa-ji-lu/,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/" title="测试用例中重要级别分类记录">上一篇</a></li>
+         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/vue-guo-lu-qi-de-shi-yong/" title=" Vue过滤器的使用">下一篇</a></li>
+        
+       </ul>
+      </div>
+        
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

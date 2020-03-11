@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+      <div class="page-top animated fadeInDown">
+    <div class="nav">
+
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+              
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/">AntdPro和umi踩坑问题日记</a></h3>
+      </div>
+      <div class="post-content">
+       <p><p>这几天使用antdpro框架尝试进行快速开发，其中遇到了不少问题，现记录一下</p>
+<hr>
+<p>2020年2月25日</p>
+<p>做路由跳转的时候发现，一级路由正常，但是切换到2级路由就会出现 地址更新页面没有跳转。</p>
+<p>解决方法：在父层路由所调用的组件中<strong>一定</strong>要包括<code>router-link</code>管道，</p>
+<p>框架不停提示各种各样的error。</p>
+<p>解决方法：修改<code>.eslintrc.js</code>文件<br>
+比如默认函数名后一定要空一个空格，但是这和编辑器逻辑是相悖的，所有我们可以把他关掉：<code>rules</code>下<code>&quot;space-before-function-paren&quot;: 0, // 去除函数括号前的空格</code></p>
+<hr>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2020-03-01</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/YsTdksQVl/" title="vue">vue </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/DdW7dcLUra/" title="vue-router">vue-router </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/vbqzTVO__d/" title="antd">antd </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/FmzInPN3L5/" title="react">react </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/">selenium 踩坑记录（二） xpath和延时</a></h3>
+      </div>
+      <div class="post-content">
+       <p><blockquote>
+<p><strong>不要频繁使用<code>xpath</code>和<code>css selector</code></strong></p>
+<h4 id="不要频繁使用xpath和css-selector">不要频繁使用<code>xpath</code>和<code>css selector</code></h4>
+<h3 id="不要频繁使用xpath和css-selector-2">不要频繁使用<code>xpath</code>和<code>css selector</code></h3>
+</blockquote>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-28</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/">selenium 踩坑记录（一） frame/iframe定位</a></h3>
+      </div>
+      <div class="post-content">
+       <p><p>这两天尝试一个页面的自动化测试，看上去很简单的一个页面，然而坑了我两天（</p>
+<p>是这样的，这个页面是个很简单的表单弹窗，但是我死活定位不到这个元素。。。不管用是<code>xpath</code>、<code>id</code>、<code>class</code>等等<br>
+打开控制台发现原来这是一个iframe弹窗，经过神奇的百度我找到了如下的解决方法</p>
+<pre><code class="language-java">driver.switch().frame() // frame 参数可填frame标签的id或name, 或driver.findElement()
+</code></pre>
+<p><sub>然而并没有什么卯月</sub></p>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-23</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/">Webdriver 报错 Element not visible 解决方法</a></h3>
+      </div>
+      <div class="post-content">
+       <p><ol>
+<li>首先排除是否是页面未加载完成的问题。页面响应时间比较慢，导致定位的元素还没加载出来，就会报错ElementNotVisible，这时可以在代码里加上一定的等待时间，如：<code>Thread.sleep(3000)</code> 。</li>
+<li>其次排除是否是定位有问题，可以用chrome浏览器的xpath helper工具来验证<img src="https://momijineko.github.io/2019/10/22/Webdriver-%E6%8A%A5%E9%94%99-Element-not-visible-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/1.png" alt="xpath helper" title="xpath helper" loading="lazy">如上图，写的xpath能够定位到页面中相应的元素，定位到的元素黄色显示。</li>
+</ol>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-22</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/JUlR_HH4WN/" title="chromedriver">chromedriver </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-bian-xie-shun-xu-he-yao-dian/">测试用例编写顺序和要点</a></h3>
+      </div>
+      <div class="post-content">
+       <p><p>记录自己在软件测试的学习过程中的要点</p>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-21</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/-uouP6eV2/" title="功能测试">功能测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/python-unittest-dan-yuan-ce-shi-kuang-jia/">Python-unittest单元测试框架</a></h3>
+      </div>
+      <div class="post-content">
+       <p><h3 id="什么是unittest">什么是<code>unittest</code></h3>
+<p><code>unittest</code>是Python自带的单元测试框架，可以帮我们完成接口自动化测试、UI自动化测试。主要用来组织和执行测试单条测试用例组织在一起执行，同时能够满足如果一条测试用例执行失败，后面的测试执行，并且提供了丰富的断言方法，判断测试用例是否通过，最终生成测试结果。</p>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-08</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/bgSGPRSzP/" title="Python">Python </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/selenium-zi-dong-hua-ce-shi-xue-xi-ji-lu/">selenium自动化测试学习记录</a></h3>
+      </div>
+      <div class="post-content">
+       <p><h4 id="环境搭建步骤">环境搭建步骤</h4>
+<ul>
+<li>安装<code>python</code>环境</li>
+<li>通过<code>pip</code>下载<code>selenium</code>
+<ul>
+<li>打开控制台或者终端</li>
+<li><code>python -m pip install --upgrade pip</code> 更新<code>pip</code>到最新版本</li>
+<li>如果安装失败可试添加<code>--user</code> 如 <code>python -m pip install --user --upgrade pip</code></li>
+<li>安装<code>selenium</code>：<code>pip install [-U] selenium</code></li>
+</ul>
+</li>
+</ul>
+<p>自动化环境搭建完毕</p>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-07</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/">测试用例中重要级别分类记录</a></h3>
+      </div>
+      <div class="post-content">
+       <p></p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-10-03</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/-uouP6eV2/" title="功能测试">功能测试 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/es6-xiang-guan-de-xin-fang-fa-ji-lu/">ES6相关的新方法记录</a></h3>
+      </div>
+      <div class="post-content">
+       <p><p>这篇文章记录一些ES6及以上版本JS中新增添常用的一些特性和方法</p>
+<h2 id="string">String</h2>
+<hr>
+<h4 id="es6中用来填充字符串的两个新方法">ES6中用来填充字符串的两个新方法</h4>
+<pre><code class="language-javascript">String.prototype.padStart(maxLength, fillString = '')
+String.prototype.padEnd(maxLength, fillString = '')
+</code></pre>
+<p>顾名思义，<code>padStart</code>是在头部填充，而<code>padEnd</code>是在尾部填充，<code>maxLength</code>为字符串的最短长度，字符串低于这个长度就会进行填充，填充内容为<code>fillString</code></p>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-09-29</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/FuyqzxNm5/" title="JavaScript">JavaScript </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/UOSHqeYM-o/" title="ES6">ES6 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/Vs5rCj0hLp/" title="JS">JS </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+       
+     <div class="post animated fadeInDown">
+      <div class="post-title">
+       <h3><a href="https://gridea.momijineko.github.io/post/vue-guo-lu-qi-de-shi-yong/">Vue过滤器的使用</a></h3>
+      </div>
+      <div class="post-content">
+       <p><h2 id="过滤器概念">过滤器概念</h2>
+<blockquote>
+<p>Vue.js 允许你自定义过滤器，可被用做一些常见的文本格式化，过滤器可以用在两个地方：mustache插值和v-bind表达式。过滤器应该被添加在JavaScript表达式的尾部，有“管道”符指示；</p>
+</blockquote>
+<p>代码示例：</p>
+<pre><code class="language-javascript">
+// 过滤器的定义语法
+{{ name | nameope }}  // mustache插值表达式
+
+// 全局过滤器
+Vue.filter('nameope', data =&gt; {
+  // 在这里做一些对mustache插值数据的渲染前处理
+  return data
+  // return 处理完的数据
+})
+
+
+</code></pre>
+</p>
+      </div>
+      <div class="post-footer">
+       <div class="meta">
+        <div class="info">
+         <i class="fa fa-sun-o"></i>
+         <span class="date">2019-09-27</span>
+         <i class="fa fa-tag"></i>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/SC5YEoC2Q/" title="编程">编程 </a>
+         
+         <a class="tag" href="https://gridea.momijineko.github.io/13fiRxT7t3/" title="Vue">Vue </a>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+     
+     <div class="pagination">
+      <ul class="clearfix">
+            
+        
+       <li class="next pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/page/2">下一页</a></li>
+       
+
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

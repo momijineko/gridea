@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>selenium自动化测试学习记录 | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>selenium自动化测试学习记录</a></h3>
+       </div>
+       <div class="post-content">
+        <h4 id="环境搭建步骤">环境搭建步骤</h4>
+<ul>
+<li>安装<code>python</code>环境</li>
+<li>通过<code>pip</code>下载<code>selenium</code>
+<ul>
+<li>打开控制台或者终端</li>
+<li><code>python -m pip install --upgrade pip</code> 更新<code>pip</code>到最新版本</li>
+<li>如果安装失败可试添加<code>--user</code> 如 <code>python -m pip install --user --upgrade pip</code></li>
+<li>安装<code>selenium</code>：<code>pip install [-U] selenium</code></li>
+</ul>
+</li>
+</ul>
+<p>自动化环境搭建完毕</p>
+<!-- more -->
+<hr>
+<h4 id="模仿鼠标键盘的链式操作actionchains">模仿鼠标键盘的链式操作<code>ActionChains</code></h4>
+<pre><code class="language-python">from selenium import webdriver
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome()
+driver.get('https://www.baidu.com')
+
+# 定位到文本框
+inp = driver.find_element_by_id('kw')
+
+# 链式
+ActionChains(driver).click().send_keys('php是世界上最好的语言').context_click().perform()
+</code></pre>
+<hr>
+<h4 id="操作js代码进行标签属性的删除">操作js代码进行标签属性的删除</h4>
+<pre><code class="language-python"># 百度主页
+inp = driver.find_element(By.PARTIAL_LINK_TEXT, '主页 ')
+
+driver.execute_script('arguments[0].removeAttribute(&quot;target&quot;)', inp)
+</code></pre>
+<hr>
+<h4 id="driverimplicitly_wait与timesleep的区别">driver.implicitly_wait()与time.sleep()的区别</h4>
+<blockquote>
+<p>作者：乐乐熊小妹<br>
+来源：https://www.cnblogs.com/lelexiong/p/9875157.html</p>
+</blockquote>
+<pre><code class="language-python"># 隐式等待，5秒钟内只要找到了元素就开始执行，5秒钟未找到超时
+driver.implictly_wait(5)
+
+# 延时5秒执行
+time.sleep(5)
+</code></pre>
+<p>如何灵活运用这两种方式：</p>
+<p>当某个页面元素变化多，影响多的情况下，用sleep,等页面元素稳定了，再定位。</p>
+<p>如果用implicitly_wait(5)，还没等页面元素稳定后就定位 ，导致定位不准确，比如操作某个元素后，会出现提示框，影响了后面元素的位置，导致定位不准确；所以用sleep,等提示框消失后开始定位</p>
+<hr>
+<h4 id="执行javascript语句实现相应操作">执行<code>JavaScript</code>语句实现相应操作</h4>
+<ul>
+<li><code>driver.execute_script('')</code> 在''里输入js语句</li>
+</ul>
+<p>比如：</p>
+<pre><code class="language-python"># 页面滚动300px
+driver.execute_script('window.scrollTo(0, 300)')
+</code></pre>
+<hr>
+<h4 id="使用select类进行下拉框值的选择">使用<code>select</code>类进行下拉框值的选择</h4>
+<p>可使用<code>selenium</code>提供的<code>select</code>类进行下拉框值的选择</p>
+<p>这里使用的Java语言来描述，演示的是用下拉框文本来选择对应条目<br>
+也可以用<code>index</code>或<code>value</code>来实现，<code>select</code>类都提供了相应的方法</p>
+<pre><code class="language-java">Select select = new Select(WebElement arg);
+select.selectByVisibleText(&quot;下拉选项文本&quot;);
+</code></pre>
+<hr>
+<h4 id="关于浏览器含国产和webdriver等环境配置">关于浏览器（含国产）和<code>webdriver</code>等环境配置</h4>
+<p>这里以配置国产QQ浏览器为例</p>
+<pre><code class="language-java">// 通过 chrome options 配置QQ浏览器启动
+ChromeOptions op = new ChromeOptions();
+op.setBinary(&quot;C:\\Program Files (x86)\\Tencent\\QQBrowser\\QQBrowser.exe&quot;);
+WebDriver driver = new ChromeDriver(op);
+
+// 或者
+// 通过设置环境变量配置QQ浏览器启动
+System.setProperty(&quot;webdriver.chrome.bin&quot;, &quot;C:\\Program Files (x86)\\Tencent\\QQBrowser\\QQBrowser.exe&quot;);
+// 通过设置环境变量配置 chromedriver
+System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;C:\\chromedriver.exe&quot;);
+</code></pre>
+<hr>
+<h4 id="frameiframe相关">frame/iframe相关</h4>
+<p><code>frame / iframe</code>操作常用的语句：</p>
+<pre><code class="language-java">// 通过 frame / iframe 在页面中的索引进行定位
+driver.switchTo().frame(int index); 
+// 通过 frame / iframe 的 id 或 name 进行定位
+driver.switchTo().frame(String id_or_name);
+// 通过普通方式定位到 frame， 然后再进行跳转
+driver.switchTo().frame(WebElement element);
+
+// 跳转到父层（上一层）框架
+driver.switchTo().parentFrame();
+
+// 跳转到初始内容，即原始层
+driver.switchTo().defaultContent();
+</code></pre>
+
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2019-10-07</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://gridea.momijineko.github.io/post/selenium-zi-dong-hua-ce-shi-xue-xi-ji-lu/,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/python-unittest-dan-yuan-ce-shi-kuang-jia/" title="Python-unittest单元测试框架">上一篇</a></li>
+         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-zhong-chong-yao-ji-bie-fen-lei-ji-lu/" title=" 测试用例中重要级别分类记录">下一篇</a></li>
+        
+       </ul>
+      </div>
+        
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

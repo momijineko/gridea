@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>selenium 踩坑记录（二） xpath和延时 | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>selenium 踩坑记录（二） xpath和延时</a></h3>
+       </div>
+       <div class="post-content">
+        <blockquote>
+<p><strong>不要频繁使用<code>xpath</code>和<code>css selector</code></strong></p>
+<h4 id="不要频繁使用xpath和css-selector">不要频繁使用<code>xpath</code>和<code>css selector</code></h4>
+<h3 id="不要频繁使用xpath和css-selector-2">不要频繁使用<code>xpath</code>和<code>css selector</code></h3>
+</blockquote>
+<!-- more -->
+<p>能用<code>id</code>就用<code>id</code>，有<code>name</code>用<code>name</code>，没有的话用<code>classname</code>，甚至<code>linktext</code>、<code>tagname</code>都没有的话最后再去选择采用<code>xpath</code>或者<code>css selector</code>，或者采用其他的复合的定位方法进行定位。</p>
+<p><code>xpath</code>定位比较浪费资源，而且它可能会出现一些难以预料到的错误，比如定位元素偏移等。</p>
+<hr>
+<h3 id="多用延时">多用延时</h3>
+<p>在编写测试用例的时候，可能编写的脚本逻辑完全正确，但因为不知道哪里的原因这个脚本跑不通。这个时候，可以在报错或者响应超时的地方适当的加入延时方法，不用太长，一秒钟左右就可以。之后再跑一遍可能就会发现脚本能顺利执行了</p>
+<pre><code class="language-python">from time import sleep;
+
+# 语句
+sleep(1)
+# 语句
+</code></pre>
+<pre><code class="language-java">Thread.sleep(800) // 需要抛出异常
+</code></pre>
+
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2019-10-28</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/antdpro-he-umi-cai-keng-wen-ti-ri-ji/" title="AntdPro和umi踩坑问题日记">上一篇</a></li>
+         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/" title=" selenium 踩坑记录（一） frame/iframe定位">下一篇</a></li>
+        
+       </ul>
+      </div>
+        
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

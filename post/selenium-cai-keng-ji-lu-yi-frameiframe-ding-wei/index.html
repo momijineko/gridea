@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>selenium 踩坑记录（一） frame/iframe定位 | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>selenium 踩坑记录（一） frame/iframe定位</a></h3>
+       </div>
+       <div class="post-content">
+        <p>这两天尝试一个页面的自动化测试，看上去很简单的一个页面，然而坑了我两天（</p>
+<p>是这样的，这个页面是个很简单的表单弹窗，但是我死活定位不到这个元素。。。不管用是<code>xpath</code>、<code>id</code>、<code>class</code>等等<br>
+打开控制台发现原来这是一个iframe弹窗，经过神奇的百度我找到了如下的解决方法</p>
+<pre><code class="language-java">driver.switch().frame() // frame 参数可填frame标签的id或name, 或driver.findElement()
+</code></pre>
+<p><sub>然而并没有什么卯月</sub></p>
+<!-- more -->
+<p>报了<code>No frame element found by name or id xxx</code>错误</p>
+<hr>
+<p>我又尝试用<code>id</code>去定位这个弹窗的顶层元素，结果报了<code>No such element</code>错误：</p>
+<pre><code class="language-java">driver.findElement(By.className(&quot;popWindow-reduction&quot;))
+</code></pre>
+<p>通过自己尝试和翻阅各种资料，发现可能是动态id惹的祸</p>
+<p>于是我尝试用粗暴的<code>Actions</code>（python为<code>ActionChains</code>）键鼠操作进行实验然后成功：</p>
+<pre><code class="language-java">   	Actions actions = new Actions(driver);
+   	actions
+   	.click()
+   	.sendKeys(Keys.TAB, &quot;123413551235&quot;, Keys.TAB, Keys.ENTER)
+   	.click()
+   	.sendKeys(Keys.TAB, Keys.ENTER)
+   	.perform();
+   	System.out.println(&quot;执行成功&quot;);
+</code></pre>
+<p>但是这种方法虽然很方便有效，不过看上去太过凌乱了，而且操作都是我实际在页面上进行操作尝试出来的，比较麻烦</p>
+<p>所以我又开始寻找元素定位的方法，最后得到的代码是这样的：</p>
+<pre><code class="language-java">// 语句太长所以定义一个变量进行存储
+WebElement iframe = driver.findElement(By.className(&quot;popWindow-box&quot;)).findElement(By.tagName(&quot;iframe&quot;));
+driver.switchTo().frame(iframe);    //切换到frame标签
+driver.findElement(By.id(&quot;pimNote_content&quot;)).sendKeys(&quot;12345666&quot;);
+driver.findElement(By.id(&quot;submitButton&quot;)).click();
+driver.switchTo().defaultContent(); //切换回默认页面
+driver.findElement(By.xpath(&quot;//*[@id=\&quot;alt1\&quot;]/div[2]/input&quot;)).click();
+</code></pre>
+<p>为什么要用class进行定位呢？具体的我也没有深究过，不过推测可能是因为这个modal对话框是用jq实时生成的，所有组件内部的id定位无效<br>
+还有我一开始尝试定位的是modal的根标签<code>#popWindow-all</code>，结果并没有成功，可能是因为这个标签没有高度的原因。</p>
+<p>我也是一边摸索着学习一边记录，如果有不正确或不严谨的地方还请各路大佬斧正。</p>
+<hr>
+<p><strong>补充</strong></p>
+<p><code>driver.switchTo().frame()</code>参数并不是只能传<code>id</code>和<code>name</code>以及<code>WebElement</code>，当上述参数都不能正常使用时可以尝试使用<code>index</code>进行定位，比如：</p>
+<pre><code class="language-java">driver.switchTo().frame(0)	// 跳转到页面第一个frame
+</code></pre>
+
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2019-10-23</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-er-xpath-he-yan-shi/" title="selenium 踩坑记录（二） xpath和延时">上一篇</a></li>
+         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/" title=" Webdriver 报错 Element not visible 解决方法">下一篇</a></li>
+        
+       </ul>
+      </div>
+        
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>

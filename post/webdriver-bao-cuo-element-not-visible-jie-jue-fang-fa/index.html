@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>Webdriver 报错 Element not visible 解决方法 | Gridea</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://gridea.momijineko.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://gridea.momijineko.github.io/images/avatar.png?v=1583899264758" style="width:127px;" />
+
+     <h3 title=""><a href="/">红叶猫</a></h3>
+
+     <div class="description">
+      <p>温故而知新</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    <li><a href="https://twitter.com/momiji__neko"><i class="fa fa-twitter"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://github.com/momijineko"><i class="fa fa-github"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://www.youtube.com/channel/UC1dqbLaGpUfvQ7O3Hfx34Ig"><i class="fa fa-youtube"></i></a></li>
+ 
+    
+
+    
+
+    <li><a href="https://weibo.com/momijineko"><i class="fa fa-weibo"></i></a></li>
+ 
+    
+
+    <li><a href="1505085794"><i class="fa fa-qq"></i></a></li>
+ 
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>Webdriver 报错 Element not visible 解决方法</a></h3>
+       </div>
+       <div class="post-content">
+        <ol>
+<li>首先排除是否是页面未加载完成的问题。页面响应时间比较慢，导致定位的元素还没加载出来，就会报错ElementNotVisible，这时可以在代码里加上一定的等待时间，如：<code>Thread.sleep(3000)</code> 。</li>
+<li>其次排除是否是定位有问题，可以用chrome浏览器的xpath helper工具来验证<img src="https://momijineko.github.io/2019/10/22/Webdriver-%E6%8A%A5%E9%94%99-Element-not-visible-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/1.png" alt="xpath helper" title="xpath helper" loading="lazy">如上图，写的xpath能够定位到页面中相应的元素，定位到的元素黄色显示。</li>
+</ol>
+<!-- more -->
+<ol start="3">
+<li>如果用xpath healper确定能定位到元素，但是跑用例的时候还是报元素不可见异常，这可能是由于用@class属性来定位，特别是class中含有复合类的定位时，也可能会报这个错误，这时可以用其它标签或属性来定位，也可以用xpath的绝对路径来定位</li>
+<li>上面两步还不能解决的话，就可以检查该元素的样式或父级及以上元素是否含有不可显示属性，需要检查元素是否具备如下特性：</li>
+</ol>
+<blockquote>
+<p>visibility!= hidden<br>
+display != none (is also checked against every parent element)<br>
+opacity != 0 (in rc2 this is no longer checked for clicking an element)<br>
+height and width are both &gt; 0<br>
+for an input, the attribute type != hidden</p>
+<p>如果有不符上面的特性之一，那么就用js脚本来处理，用js操作元素参考博客：<a href="http://blog.csdn.net/galen2016/article/details/56847545">http://blog.csdn.net/galen2016/article/details/56847545</a></p>
+</blockquote>
+<ol>
+<li>
+<p>还有一种情况，就是选取元素的时候，可能存在两个相同的，但一次只会用一个，这两个区别就有一个样式的属性是不可见的，这个时候选取元素时要去掉不可见属性，如下例子：<img src="https://momijineko.github.io/2019/10/22/Webdriver-%E6%8A%A5%E9%94%99-Element-not-visible-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/2.png" alt="图2" title="图2" loading="lazy"><br>
+如上图，启用流程按钮滑到右边时，该元素增加了display:none属性，此时如要向左滑可以如下方法来定位</p>
+<pre><code class="language-python">WebElement label = driver.findElement(By.xpath(“//div[@class=’el-switch__label el-switch__label’ and not(contains(@style,’display:none’))]”));
+</code></pre>
+</li>
+<li>
+<p>最后，可能是编写脚本流程没有按照正常的操作步骤来进行,导致操作的元素没有在当前页面。</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>原作者：</strong><a href="https://blog.csdn.net/galen2016">灵枢_</a><br>
+<strong>原文链接：</strong><a href="https://www.baidu.com/link?url=u0jn3R7xotsUtIrPQkiJw2gpH5Nr1Hvp_vP1ouaqaePGEom8hcGXIwL_LPpQ5pndVR7dhRa1cE8E8C-yjZ9_DNgnSKGS72Z3He9uXv9_bn7&amp;wd=&amp;eqid=8cfcaae30004d6ef000000025daeca50">【WebDriver】解决<em>ElementNotVisibleException</em>方法总结..._CSDN博客</a></p>
+</blockquote>
+
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2019-10-22</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/r-TkBrqY1/" title="自动化测试">自动化测试 </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/iH6MX-HV20/" title="selenium">selenium </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/JUlR_HH4WN/" title="chromedriver">chromedriver </a>
+          
+          <a class="tag" href="https://gridea.momijineko.github.io/KJ0r3NtpZj/" title="软件测试">软件测试 </a>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://gridea.momijineko.github.io/post/webdriver-bao-cuo-element-not-visible-jie-jue-fang-fa/,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/selenium-cai-keng-ji-lu-yi-frameiframe-ding-wei/" title="selenium 踩坑记录（一） frame/iframe定位">上一篇</a></li>
+         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://gridea.momijineko.github.io/post/ce-shi-yong-li-bian-xie-shun-xu-he-yao-dian/" title=" 测试用例编写顺序和要点">下一篇</a></li>
+        
+       </ul>
+      </div>
+        
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://gridea.momijineko.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>
